@@ -1,7 +1,7 @@
 apiVersion: meta.dev.upbound.io/v2alpha1
 kind: Project
 metadata:
-  name: configuration-aws-ram-share
+  name: aws-ram-share
 spec:
   dependsOn:
   - apiVersion: pkg.crossplane.io/v1
@@ -17,9 +17,9 @@ spec:
   license: Apache-2.0
   maintainer: Patrick Lee Scott <pat@patscott.io>
   readme: |
-    # configuration-aws-ram-share
+    # aws-ram-share
 
     Provides a reusable RAM share blueprint for sharing AWS resources across accounts.
     Supports sharing IPAM pools, Transit Gateways, Subnets, Private CAs, and 60+ other resource types.
-  repository: ghcr.io/hops-ops/configuration-aws-ram-share
-  source: github.com/hops-ops/configuration-aws-ram-share
+  repository: ghcr.io/hops-ops/aws-ram-share
+  source: github.com/hops-ops/aws-ram-share

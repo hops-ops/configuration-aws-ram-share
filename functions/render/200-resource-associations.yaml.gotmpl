@@ -17,9 +17,7 @@ metadata:
   name: {{ $rs.xrName }}-{{ $res.name }}
   annotations:
     {{ setResourceNameAnnotation (printf "resource-assoc-%s" $res.name) }}
-  labels:
-    hops.ops.com.ai/ram-share: {{ $rs.xrName }}
-    hops.ops.com.ai/resource-name: {{ $res.name }}
+  labels: {{ merge (dict "hops.ops.com.ai/resource-name" $res.name) $rs.labels | toJson }}
 spec:
   managementPolicies: {{ toJson $rs.managementPolicies }}
   forProvider:
@@ -40,8 +38,7 @@ metadata:
   name: {{ $rs.xrName }}-share-protects-resource-{{ $res.name }}
   annotations:
     {{ setResourceNameAnnotation (printf "usage-share-resource-%s" $res.name) }}
-  labels:
-    hops.ops.com.ai/ram-share: {{ $rs.xrName }}
+  labels: {{ $rs.labels | toJson }}
 spec:
   of:
     apiVersion: ram.aws.m.upbound.io/v1beta1

@@ -1,10 +1,10 @@
 apiVersion: meta.pkg.crossplane.io/v1alpha1
 kind: Configuration
 metadata:
-  name: configuration-aws-ram-share
+  name: aws-ram-share
   annotations:
     meta.crossplane.io/maintainer: Patrick Lee Scott
-    meta.crossplane.io/source: github.com/hops-ops/configuration-aws-ram-share
+    meta.crossplane.io/source: github.com/hops-ops/aws-ram-share
     meta.crossplane.io/description: AWS Resource Access Manager (RAM) shares for cross-account resource sharing.
 spec:
   dependsOn:

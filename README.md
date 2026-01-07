@@ -1,4 +1,4 @@
-# configuration-aws-ram-share
+# aws-ram-share
 
 Share AWS resources across accounts using AWS Resource Access Manager (RAM).
 

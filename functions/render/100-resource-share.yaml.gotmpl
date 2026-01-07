@@ -15,8 +15,7 @@ metadata:
   name: {{ $rs.xrName }}
   annotations:
     {{ setResourceNameAnnotation "resource-share" }}
-  labels:
-    hops.ops.com.ai/ram-share: {{ $rs.xrName }}
+  labels: {{ $rs.labels | toJson }}
 spec:
   managementPolicies: {{ toJson $rs.managementPolicies }}
   forProvider:

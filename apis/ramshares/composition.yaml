@@ -9,7 +9,7 @@ spec:
   mode: Pipeline
   pipeline:
   - functionRef:
-      name: hops-ops-configuration-aws-ram-sharerender
+      name: hops-ops-aws-ram-sharerender
     step: render
   - functionRef:
       name: crossplane-contrib-function-auto-ready

@@ -17,10 +17,7 @@ metadata:
   name: {{ $rs.xrName }}-{{ $prin.name }}
   annotations:
     {{ setResourceNameAnnotation (printf "principal-assoc-%s" $prin.name) }}
-  labels:
-    hops.ops.com.ai/ram-share: {{ $rs.xrName }}
-    hops.ops.com.ai/principal-name: {{ $prin.name }}
-    hops.ops.com.ai/principal-type: {{ $prin.type }}
+  labels: {{ merge (dict "hops.ops.com.ai/principal-name" $prin.name "hops.ops.com.ai/principal-type" $prin.type) $rs.labels | toJson }}
 spec:
   managementPolicies: {{ toJson $rs.managementPolicies }}
   forProvider:
@@ -41,8 +38,7 @@ metadata:
   name: {{ $rs.xrName }}-share-protects-principal-{{ $prin.name }}
   annotations:
     {{ setResourceNameAnnotation (printf "usage-share-principal-%s" $prin.name) }}
-  labels:
-    hops.ops.com.ai/ram-share: {{ $rs.xrName }}
+  labels: {{ $rs.labels | toJson }}
 spec:
   of:
     apiVersion: ram.aws.m.upbound.io/v1beta1
